@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizipy - Leaderboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">
+                <img src="Adi.jpeg" alt="Quizipy Logo" class="logo-img">Quizipy
+            </h1>
+            <ul class="nav-links">
+               
+                <li><a href="student.html" class="nav-link active">Take Quiz</a></li>
+                <li><a href="Sleaderboad.html" class="nav-link active">Leaderboard</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h2>Leaderboard</h2>
+        <div class="leaderboard-filters">
+            <select id="quiz-select">
+                <option value="all">All Quizzes</option>
+            </select>
+        </div>
+        <table class="leaderboard-table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Quiz</th>
+                    <th>Score</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody id="leaderboard-body"></tbody>
+        </table>
+    </main>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="Sleaderboad.js" type="module"></script>
+</body>
+</html>

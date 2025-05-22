@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizipy - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">
+                <img src="Adi.jpeg" alt="Quizipy Logo" class="logo-img">Quizipy
+            </h1>
+            <ul class="nav-links">
+                <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+                <li><a href="teacher.html" class="nav-link">Create Quiz</a></li>
+             
+                <li><a href="Tleaderboard.html" class="nav-link">Leaderboard</a></li>
+            </ul>
+        </div>
+        <button id="logout-btn" class="btn secondary">Logout</button>
+    </nav>
+
+    <main class="container">
+        <h2>🙋‍♂️Your Quiz Dashboard</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Created Quizzes</h3>
+                <p id="total-quizzes">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Total Participants</h3>
+                <p id="total-participants">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Average Score</h3>
+                <p id="average-score">0%</p>
+            </div>
+        </div>
+        <div class="my-quizzes">
+            <h3>My Quizzes</h3>
+            <div id="quiz-list" class="quiz-grid"></div>
+        </div>
+    </main>
+
+    <script src="dashboard.js" type="module"></script>
+</body>
+</html>

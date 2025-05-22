@@ -1,0 +1,1004 @@
+/* Base styles */
+:root {
+    --primary-color: #4f46e5;
+    --primary-hover: #4338ca;
+    --secondary-color: #6b7280;
+    --background-color: #f3f4f6;
+    --text-color: #1f2937;
+    --border-color: #e5e7eb;
+    --card-background: #ffffff;
+    --success-color: #10b981;
+    --error-color: #ef4444;
+    --animation-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--background-color) url('Quiz background.jpg') no-repeat center center/cover;
+    transition: background-color var(--animation-speed) ease;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Navigation */
+.navbar {
+    background-color: var(--card-background);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+}
+
+/* Navbar container */
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+}
+
+/* Logo section */
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-color);
+    gap: 10px;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+/* Logo image */
+.logo-img {
+    width: 40px; /* Adjust as needed */
+    height: auto;
+    display: inline-block;
+}
+
+/* Logo hover effect */
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* Navbar links */
+.nav-links {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+/* Individual navbar link */
+.nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+/* Navbar link hover effect */
+.nav-link:hover {
+    background-color: var(--background-color);
+    transform: translateY(-2px);
+}
+
+/* Active link styling */
+.nav-link.active {
+    color: var(--primary-color);
+    background-color: var(--background-color);
+}
+
+/* Active link underline effect */
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: center;
+}
+
+.nav-link.active:hover::after {
+    transform: scaleX(1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+        justify-content: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+}
+
+
+/* Pages */
+.page {
+    display: none;
+    padding: 2rem 0;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page.active {
+    display: block;
+}
+
+main.container {
+    padding: 2rem 1rem;
+    width: 100%;
+    background: #f0eded;
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    position: relative;
+    display: inline-block;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+h2:hover::after {
+    width: 100%;
+}
+
+/* Dashboard */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+    width: 100%;
+}
+
+.stat-card {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--primary-color);
+    width: 100%;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h3 {
+    color: var(--secondary-color);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: bold;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.stat-card:hover p {
+    color: var(--primary-hover);
+}
+
+.quiz-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.quiz-card {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.quiz-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-hover));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.quiz-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-card:hover::before {
+    transform: scaleX(1);
+}
+
+.quiz-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-size: clamp(1.1rem, 3vw, 1.25rem);
+}
+
+.quiz-code {
+    display: inline-block;
+    background-color: var(--background-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-family: monospace;
+    margin: 0.5rem 0;
+    font-weight: bold;
+    color: var(--primary-color);
+    word-break: break-all;
+}
+
+.quiz-stats {
+    color: var(--secondary-color);
+    font-size: 0.875rem;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: var(--card-background);
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.quiz-form {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    animation: slideUp 0.5s ease;
+    width: 100%;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.question-item {
+    background-color: var(--background-color);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    animation: fadeIn 0.5s ease;
+    width: 100%;
+}
+
+.options-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+    width: 100%;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.btn:focus:not(:active)::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn.primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn.primary:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.btn.secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn.secondary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn.secondary:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Quiz Taking */
+.quiz-entry {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+    width: 100%;
+}
+
+.quiz-content {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease;
+    width: 100%;
+}
+
+.question-text {
+    font-size: clamp(1.1rem, 3vw, 1.25rem);
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.option:hover {
+    background-color: var(--background-color);
+    transform: translateX(5px);
+}
+
+.option input[type="radio"] {
+    margin-right: 1rem;
+}
+
+.quiz-navigation {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.result {
+    background-color: var(--background-color);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    margin: 2rem 0;
+    animation: pulse 2s infinite;
+    width: 100%;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(79, 70, 229, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+    }
+}
+
+.result p {
+    font-size: clamp(1.1rem, 3vw, 1.25rem);
+    margin-bottom: 0.5rem;
+}
+
+.result p:first-child {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Leaderboard */
+.leaderboard-filters {
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+/* 🏆 Leaderboard Styling */
+.leaderboard-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 2rem auto;
+    text-align: center;
+    background: var(--card-background);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.leaderboard-table th, .leaderboard-table td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 1rem;
+}
+
+.leaderboard-table th {
+    background-color: var(--background-color);
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+/* 🏆 Winner Trophy & Medals */
+.leaderboard-table tr:first-child td:first-child::before {
+    content: '🏆'; /* Gold Trophy for 1st Place */
+    font-size: 1.5rem;
+    position: relative;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: bounce 1s infinite alternate;
+}
+
+.leaderboard-table tr:nth-child(2) td:first-child::before {
+    content: '🥈'; /* Silver Medal for 2nd Place */
+    font-size: 1.5rem;
+    position: relative;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.leaderboard-table tr:nth-child(3) td:first-child::before {
+    content: '🥉'; /* Bronze Medal for 3rd Place */
+    font-size: 1.5rem;
+    position: relative;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* 🏅 Highlighting Top 3 Players */
+.leaderboard-entry {
+    transition: transform 0.3s ease, background-color 0.5s ease;
+}
+
+.leaderboard-entry.gold {
+    background: radial-gradient(circle, gold 30%, yellow 100%);
+    color: black;
+    font-weight: bold;
+    animation: glowEffect 1.5s infinite alternate;
+}
+
+.leaderboard-entry.silver {
+    background: radial-gradient(circle, silver 30%, lightgray 100%);
+    color: black;
+    font-weight: bold;
+}
+
+.leaderboard-entry.bronze {
+    background: radial-gradient(circle, #cd7f32 30%, #d68c4a 100%);
+    color: white;
+    font-weight: bold;
+}
+
+/* 🔄 Smooth Transition for Rank Changes */
+@keyframes rankChange {
+    from {
+        transform: translateY(-10px);
+        opacity: 0.5;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.rank-change {
+    animation: rankChange 0.5s ease-in-out;
+}
+
+/* ✨ Glow Effect for First Place */
+@keyframes glowEffect {
+    from {
+        box-shadow: 0px 0px 10px gold;
+    }
+    to {
+        box-shadow: 0px 0px 20px yellow;
+    }
+}
+
+/* 🌀 Bouncing Trophy Animation */
+@keyframes bounce {
+    from {
+        transform: translateY(-50%) scale(1);
+    }
+    to {
+        transform: translateY(-50%) scale(1.2);
+    }
+}
+
+
+
+@media (max-width: 480px) {
+    .leaderboard-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .leaderboard-container {
+        max-width: 100%;
+    }
+}
+
+
+
+
+
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+    animation: fadeIn 0.3s ease forwards;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+    transform: translateY(20px);
+    animation: slideUp 0.3s ease forwards;
+}
+
+.share-code {
+    display: flex;
+    margin: 1rem 0;
+    gap: 0.5rem;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.share-code input {
+    flex: 1;
+    font-family: monospace;
+    font-size: 1.25rem;
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: bold;
+    min-width: 150px;
+}
+
+/* Utility classes */
+.hidden {
+    display: none !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .nav-link {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    .stats-grid,
+    .quiz-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .options-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .quiz-navigation {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+    
+    .quiz-form {
+        padding: 1rem;
+    }
+    
+    .question-item {
+        padding: 1rem;
+    }
+    
+    .modal-content {
+        padding: 1.5rem;
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+    
+    .container {
+        padding: 0 0.75rem;
+    }
+    
+
+    
+    .quiz-entry, 
+    .quiz-content {
+        padding: 1.25rem;
+    }
+    
+    .option {
+        padding: 0.75rem;
+    }
+    
+    .leaderboard-table th,
+    .leaderboard-table td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .share-code {
+        flex-direction: column;
+    }
+    
+    .share-code input {
+        font-size: 1rem;
+    }
+}
+
+/* Table responsiveness */
+
+
+
+
+
+
+
+
+/* 🎭 Responsive Adjustments */
+@media (max-width: 768px) {
+    .leaderboard-table th, .leaderboard-table td {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    .leaderboard-container {
+        max-width: 90%;
+    }
+}
+
+
+
+/* 🎮 Quiz UI */
+.quiz-container {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 1rem auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.quiz-question {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option {
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option:hover {
+    background-color: var(--background-color);
+    transform: translateX(5px);
+}
+
+/* 🎯 Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn.primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.btn.secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn.secondary:hover {
+    opacity: 0.9;
+}
+
+/* 🏁 Quiz Navigation */
+.quiz-navigation {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+/* 📜 Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 💡 Utility Classes */
+.hidden {
+    display: none !important;
+}
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px; /* Optional: for rounded corners */
+}
+
+/* Logout Button */
+#logout-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    
+    /* Fix button width issue */
+    display: inline-block; /* Ensures it does not take full width */
+    width: auto; /* Prevents stretching */
+    margin-left: 15px; /* Adds spacing from navbar links */
+}
+
+/* Logout Button Hover Effect */
+#logout-btn:hover {
+    background-color: #cc0000;
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+    #logout-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}

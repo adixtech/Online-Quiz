@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizipy - Take Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">
+                <img src="Adi.jpeg" alt="Quizipy Logo" class="logo-img">Quizipy
+            </h1>
+            <ul class="nav-links">
+              
+                <li><a href="student.html" class="nav-link active">Take Quiz</a></li>
+                <li><a href="Sleaderboad.html" class="nav-link">Leaderboard</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div id="quiz-entry" class="quiz-entry">
+
+            <h2>Enter Your Name</h2>
+    <div class="form-group">
+        <input type="text" id="user-name" placeholder="Enter your name">
+    </div>
+
+            <h2>Enter Quiz Code</h2>
+            <div class="form-group">
+                <input type="text" id="quiz-code" placeholder="Enter quiz code here">
+                <button id="start-quiz" class="btn primary">Start Quiz</button>
+            </div>
+        </div>
+        <div id="quiz-content" class="quiz-content hidden">
+            <h3 id="quiz-timer-display" style="color: red; text-align: center;"></h3>
+
+            <h2 id="quiz-title-display"></h2>
+            <div id="question-display"></div>
+            <div class="quiz-navigation">
+                <button id="prev-question" class="btn secondary">Previous</button>
+                <button id="next-question" class="btn primary">Next</button>
+                <button id="submit-quiz" class="btn primary ">Submit Quiz</button>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="student.js" type="module"></script>
+</body>
+</html>

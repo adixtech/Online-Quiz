@@ -1,0 +1,168 @@
+/* Smooth Transitions */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background: url("https://static.vecteezy.com/system/resources/previews/017/301/453/original/blackboard-and-elements-in-the-classroom-on-wooden-sheet-background-chalkboard-for-copy-space-blank-blackboard-illustration-vector.jpg") no-repeat center center/cover;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #333;
+    margin: 0;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Main Container */
+.container {
+    max-width: 800px;
+    width: 90%;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Header Styling */
+h1, h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #121315;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    transition: color 0.3s ease-in-out;
+}
+
+h1:hover, h2:hover {
+    color: #ff5733;
+}
+
+/* Role Section */
+.roles {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Role Cards */
+.role {
+    width: min(100%, 250px);
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.role:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.role img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+}
+
+.role:hover img {
+    transform: rotate(5deg) scale(1.1);
+}
+
+.role-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #111827;
+    margin-bottom: 10px;
+}
+
+.role-description {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+/* Button Styling */
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #ff5733;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+button:hover {
+    background-color: #e44d26;
+    transform: scale(1.05);
+}
+
+button:focus {
+    outline: 2px solid #ff5733;
+    outline-offset: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+        margin: 3rem auto;
+    }
+
+    .roles {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .role {
+        width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .roles {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .role {
+        width: 100%;
+        padding: 20px;
+    }
+}
